@@ -1,0 +1,185 @@
+\documentclass[mathserif]{beamer}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+
+%\includeonly{number_electrons}
+
+\usetheme[secheader]{Madrid}
+\usecolortheme{ostrich}
+\setbeamercovered{transparent=50}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[
+  labelformat=empty,
+  justification=centering,
+  font=scriptsize
+]{caption}
+
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\DeclareGraphicsExtensions{.jpg,.png,.gif}
+\usepackage{fancybox}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usetikzlibrary{shapes.geometric,shapes.arrows,shapes.callouts,arrows,decorations.pathmorphing}
+
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{below-main}
+\pgfdeclarelayer{above-main}
+\pgfsetlayers{background,below-main,main,above-main}
+
+\IfFileExists{cache/use_cache.tmp}{
+  \usetikzlibrary{external}
+  \tikzexternalize
+  \tikzsetexternalprefix{cache/}
+}
+
+\usepackage{url}
+
+\usepackage[citestyle=authoryear]{biblatex}
+\addbibresource{bibliography.bib}
+
+\title[Ultrafast EM]{High Space-Time Resolution\\Transmission Electron Microscopy}
+\author{Joel Berger}
+\institute[UIC]{Ph.D. Preliminary Examination}
+\date{April 26, 2013}
+
+\providecommand{\smallT}[0]{ { \scriptscriptstyle T } }
+\providecommand{\dx}[1]{\ensuremath{ \operatorname{d}\!#1 }}
+\providecommand{\vf}[0]{\only<presentation>{\vfill}}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\AtBeginSection{
+  \addtocounter{framenumber}{-1}
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+\AtBeginSubsection{
+  \addtocounter{framenumber}{-1}
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+\section{Introduction}
+\include{introduction}
+
+\section{Physical Considerations}
+
+\begin{frame}{Physical Considerations}
+A major focus of my research has been to identify physical limitations, verify them, and propose and test solutions for them.\footcite{berger_dc_2009}
+\begin{figure}
+  \centering
+  \includegraphics{mammoth}
+\end{figure}
+\end{frame}
+
+\subsection{Difficulty Generating High Charge Ultrafast Pulses}
+\include{number_electrons}
+
+\subsection{Need for Low Emittance Pulses}
+\include{resolution}
+
+\section{Photocathode Engineering/Reducing $\Delta p_{\smallT}$}
+\include{photocathode}
+
+\section{Hardware Development}
+\include{hardware}
+
+\section{Simulation}
+\include{simulation}
+
+\section{Future Work / Summary}
+
+\begin{frame}{Future Work}
+  \begin{block}{Ultrafast Group Goal}
+    A novel UEM housed at UIC (Research Resources Center --- East) incorporating my laser-driven photogun
+  \end{block}
+  \begin{itemize}
+    \item<2-> Investigate $m^{*}$ photoemission dependence
+    \item<3-> Install RF compression cavity
+    \item<4-> Devise and install pulse duration measurement
+    \item<5-> Extend simulation for longer pulses and relativistic speeds
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Summary}
+Time Resolved Electron Microscopy is attempting to push time resolution to sub-ps time scales
+  \begin{itemize}
+    \item<2-> Highlighted several challenges including
+    \begin{itemize}
+      \item<2-> Difficulty generating short electron pulses of sufficient charge
+      \item<3-> Necessity of generating low emittance pulses
+      \item<4-> Difficulty maintaining the pulse integrity during propagation
+      \item<5-> Need for useful simulations for optimization of columns
+    \end{itemize}
+    \item<6-> Demonstrated new techniques aimed at solving electron the pulse generation and delivery problem
+    \begin{itemize}
+      \item<7-> Nanopatterned photocathodes
+      \begin{itemize}
+        \item [$\hookrightarrow$] Plasmon-enhanced photoemission
+      \end{itemize}
+      \item<8-> Large aperture electron optical elements
+      \item<9-> Column simulation based on AG model
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Thanks}
+Thanks to:
+\begin{columns}
+  \begin{column}{.49\linewidth}
+    \begin{itemize}
+      \item Committee members
+      \item Dept. of Energy (NNSA)
+      \item National Science Foundation
+      \item Argonne Nat'l Lab (FIB)
+      \item Prof. W. Andreas Schroeder
+      \item Ultrafast Group members
+      \begin{itemize}
+        \item Ben Rickman
+        \item John Hogan
+        \item Tuo Li
+        \item Stephanie Schieffer\\(Air Force Research Lab)
+      \end{itemize}
+    \end{itemize}
+  \end{column}
+
+  \begin{column}{.49\linewidth}
+    \begin{columns}
+      \begin{column}{1in}
+        \begin{figure}
+          \includegraphics[width=0.7in]{doe}
+        \end{figure}
+      \end{column}
+
+      \begin{column}{1in}
+        \begin{figure}
+          \includegraphics[width=0.7in]{nsf}
+        \end{figure}
+      \end{column}
+    \end{columns}
+    \vspace{0.4in}
+    \begin{center}
+      \includegraphics[width=1.3in]{Laser_Small}
+    \end{center}
+  \end{column}
+\end{columns}
+\end{frame}
+
+%\appendix
+%\include{appendix}
+
+\end{document}
