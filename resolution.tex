@@ -188,21 +188,17 @@ For a beam imaged fully on the detector:
     \begin{itemize}
       \item Aperture the beam at a Fourier plane
       \begin{itemize}
-        \item<7->[$\hookrightarrow$] Loss of electrons
+        \item<5-> Loss of electrons
+        \item<6-> Dynamic lensing at aperture
       \end{itemize}
-      \item<8-> Reduce transverse momentum upon emission
+      \item<7-> Reduce transverse momentum upon emission
     \end{itemize}
-    \visible<9->{
-      \begin{block}{Ongoing Research}
-        Dynamic aperture lensing problem\\ $\overset{\text{?}}{\Rightarrow}$ aperture not possible for UEM 
-      \end{block}
-    }
     \end{column}
     \begin{column}{0.44\linewidth}
       \begin{center}
       \begin{tikzpicture}[scale=0.5]
         \node (origin) at (0,0) {};
-        \foreach \y/\slide in {0/2,1/3,-1/4,2/5,-2/6} {
+        \foreach \y/\slide in {0/2,1/3,-1/3,2/4,-2/4} {
           \foreach \x/\color in {-2/red, -1/orange, 0/yellow, 1/green, 2/blue} {
             \draw<\slide->[color=\color]
               (0,\y)
