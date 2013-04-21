@@ -32,6 +32,8 @@
     
     \draw [<->,>=latex] (x-phi) -- (upper) node [pos=0.4,right] {\large $ \Phi_{eff} < \Phi $};
     \draw [<->,>=latex] (upper-no-field) -- (upper-no-field |- surface.north);
+
+    \node<2-> [red] at (4cm,-4cm) {$\eta_{PE} = A (1-R) (\hbar \omega - \Phi_{eff})^2$};
   \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -214,7 +216,7 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
     \begin{column}{0.49\linewidth}
       \begin{figure}
         \centering
-        \visible<3->{
+        \visible<2->{
           \includegraphics[width=0.8\linewidth]{Damage}
         }
       \end{figure}
@@ -227,16 +229,16 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
   \begin{itemize}
     \item Silicon substrate
     \begin{itemize}
-      \item<2-> Focused Ion Beam (FIB) milled at Argonne Nat'l Lab (ANL)
-      \item<3-> Near sinusoidal shape
-      \item<3-> $\sim 1 \mu$m periodicity
-      \item<4-> Several ($\sim10$) 100$\mu$m x 100$\mu$m patches
-      \item<4-> Several hours of milling
+      \item Focused Ion Beam (FIB) milled at Argonne Nat'l Lab (ANL)
+      \item Near sinusoidal shape
+      \item $\sim 1 \mu$m periodicity
+      \item Several ($\sim10$) 100$\mu$m x 100$\mu$m patches
+      \item Several hours of milling
     \end{itemize}
-    \item<5-> Gold coated at UIC Nano Core Facility (NCF)
+    \item Gold coated at UIC Nano Core Facility (NCF)
     \begin{itemize}
-      \item<6-> 300 nm thickness
-      \item<6-> Chromium binding layer
+      \item 300 nm thickness
+      \item Chromium binding layer
     \end{itemize}
   \end{itemize}
   
@@ -299,7 +301,7 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
   \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Sinusoidal Nanopatterned Photocathode --- Results}
+\begin{frame}{Sinusoidal Nanopatterned Photocathode: Results}
   \begin{center}
     \begin{tikzpicture}
       \node {\includegraphics{Graph1}};
@@ -381,7 +383,7 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
   \end{center}
 \end{frame}
 
-\begin{frame}{Trenched Photocathode}
+\begin{frame}{Trenched Nanopatterned Photocathode}
   \begin{columns}
     \begin{column}{0.54\linewidth}
       Grooved Photocathode
@@ -432,17 +434,46 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
         k_{SP} =& k_{laser}^{\parallel} + m \cdot k_{G}\\
         \sin(\theta) =& \sqrt{ \frac{\varepsilon}{1+\varepsilon} } - \frac{ m \lambda }{a}
       \end{align*}
-      \begin{block}{}
+      \begin{block}<2->{}
         \begin{itemize}
-          \item<2-> Retains periodic structure
-          \item<3-> Reduced $\nabla_{\perp} E_{SP}$
-          \item<4-> Additional Fourier components
-          \item<5-> Easier to FIB mill
+          \item Retains periodic structure
+          \item Reduced $\nabla_{\perp} E_{SP}$
+          \item Additional Fourier components
+          \item Easier to FIB mill
         \end{itemize}
       \end{block}
-      \visible<6->{\alert{Update: Couldn't drive plasmon!}}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}{Trenched Nanopatterned Photocathode: Results}
+  \begin{columns}
+    \begin{column}{0.49\linewidth}
+      \begin{figure}
+        \centering
+        \includegraphics{trench_damage_false_color.png}
+      \end{figure}
+      \begin{itemize}
+        \item Heat damage on grating
+        \item Plasmon excitation?
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.49\linewidth}
+      \begin{figure}
+        \centering
+        \includegraphics{trench_incomplete_filling.png}
+      \end{figure}
+      \begin{itemize}
+        \item Incomplete filling of trenches
+        \item Increases plasmon threshold 
+        \item[$\Rightarrow$] laser damage 
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vfill
+  \begin{center}
+    \alert{No evidence of plasmon-assisted photoemission!}
+  \end{center}
 \end{frame}
 
 \begin{frame}
