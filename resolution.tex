@@ -1,83 +1,3 @@
-\begin{frame}{Resolution}
-For a beam imaged fully on the detector:
-  \begin{center}
-  \begin{tikzpicture}[scale=0.5]
-    \draw (-2,-2) node [below right,align=center] {Detector\\$N_p$ x $N_p$ CCD} rectangle (2,2);
-    \draw [step=0.25] (-2,-2) grid (2,2);
-    \fill[blue!50, opacity=0.5] (0,0) circle (2);
-    \coordinate (lens1) at (3,0);
-    \coordinate (fplane) at (6,0);
-    \coordinate (lens2) at (7.5,0);
-    \coordinate (sample) at (9,0);
-    \fill[blue!30, opacity=0.5]
-      (0,2) 
-      -- ($(lens1) + (0,2)$) 
-      -- ($(fplane) + (0,0.1)$)
-      -- ($(lens2) + (0,0.4)$)
-      -- ($(lens2) - (0,0.4)$)
-      -- ($(fplane) - (0,0.1)$)
-      -- ($(lens1) - (0,2)$)
-      -- (0,-2)
-      -- cycle
-    ;
-    \draw [fill=white] 
-      ($(lens1) + (0,3.5)$)
-      node [above] {Lens}
-      to [out=262, in=98] ++(0,-7) 
-      to [out=82, in=278] ++(0,7)
-    ;
-    \draw 
-      ($(lens1) + (0,3.5)$)
-      to [out=267, in=93] ++(0,-7) 
-    ;
-    \draw [fill=white] 
-      ($(lens2) + (0,3.5)$)
-      node [above] {Lens}
-      to [out=254, in=106] ++(0,-7)  
-      to [out=74, in=286] ++(0,7)
-    ;
-    \draw 
-      ($(lens2) + (0,3.5)$)
-      to [out=262, in=98] ++(0,-7) 
-    ;
-    \draw [fill=yellow!50]
-      ($(sample) + (0.5,2.1)$)
-      -- ++(0,-2)
-      -- ++(-1,-2) 
-      node [pos=0.5, pin={below right:Sample}] {}
-      -- ++(0,2)
-      -- cycle
-    ;
-    \fill[blue!50, opacity=0.5]
-      (sample) 
-      ellipse (0.2 and 0.4)
-    ;
-    \fill[blue!30, opacity=0.5]
-      ($(lens2) + (0.4,0.4)$)
-      -- ++(2.5,0)
-      node [black,opacity=1,right] {Beam}
-      arc [
-        start angle=90,
-        end angle=-90,
-        x radius=0.2,
-        y radius=0.4
-      ]
-      -- ++(-2.5,0)
-      arc [
-        start angle=270,
-        end angle=90,
-        x radius=0.2,
-        y radius=0.4
-      ]
-    ;
-  \end{tikzpicture}
-  \begin{block}{Resolution}
-    Resolution = Spot size on sample / 1D Number of Pixels ($N_p$)
-  \end{block}
-  \uncover<2->{Example: 1$\mu$m spot and 1k x 1k CCD $\Rightarrow$ 1nm resolution}
-  \end{center}
-\end{frame}
-
 \begin{frame}{Conservation of Emittance}
 \begin{columns}
   \begin{column}{0.42\linewidth}
@@ -144,15 +64,119 @@ For a beam imaged fully on the detector:
       \end{equation*}
     \end{block}
     \begin{block}<3->{Liouville's Theorem}
-      Emittance is conserved throughout propagation.
+      Emittance is conserved under aberration-free propagation
     \end{block}
-    \begin{block}<4->{Focal Spot Size}	
-      \begin{equation*}
-        \Delta x^{\text{at sample}} = f_{\text{obj}} \cdot \Delta \theta^{\text{at obj}}
-      \end{equation*}
+    \begin{block}<4->{Emittance Growth}	
+      Emittance may increase due to aberrations or other adverse conditions
     \end{block}
   \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{To Improve Resolution}
+%For a beam imaged fully on the detector:
+  \begin{center}
+  \begin{tikzpicture}[scale=0.5]
+    \draw (-2,-2) node [below right,align=center] {Detector\\$N_p$ x $N_p$ CCD} rectangle (2,2);
+    \draw [step=0.25] (-2,-2) grid (2,2);
+    \fill[blue!50, opacity=0.5] (0,0) circle (2);
+    \coordinate (lens1) at (-3,0);
+    \coordinate (fplane) at (-6,0);
+    \coordinate (lens2) at (-7.5,0);
+
+    % beam from sample to detector
+    \fill[blue!30, opacity=0.5]
+      (0,2) 
+      -- ($(lens1) + (0,2)$) 
+      -- ($(fplane) + (0,0.1)$)
+      -- ($(fplane) - (0,0.1)$)
+      -- ($(lens1) - (0,2)$)
+      -- (0,-2)
+      --cycle;
+
+    % sample
+    \draw [fill=yellow!50]
+      ($(fplane) + (-0.5,2.1)$)
+      -- ++(0,-2)
+      -- ++(1,-2)
+        node [pos=0.5, pin={[pin distance=1.2cm]below:$\Delta x_s = f_1 \Delta \theta_s$}] {}
+      -- ++(0,2)
+        node [above=1cm] {Sample} 
+      -- cycle
+    ;
+
+    % beam from objective to sample
+    \fill[blue!30, opacity=0.5]
+      ($(lens2) + (0,0.4)$)
+      -- ($(fplane) + (0,0.1)$)
+      -- ($(fplane) - (0,0.1)$)
+      -- ($(lens2) - (0,0.4)$)
+      -- cycle
+    ;
+
+    % beam spot on sample
+    \fill[blue!50, opacity=0.5]
+      (fplane) 
+      ellipse (0.05 and 0.1)
+    ;
+
+    \draw [fill=white] 
+      ($(lens1) + (0,3.5)$)
+      node [above] {Lenses}
+      to [out=262, in=98] ++(0,-7) 
+      to [out=82, in=278] ++(0,7)
+    ;
+    \draw 
+      ($(lens1) + (0,3.5)$)
+      to [out=273, in=87] ++(0,-7) 
+    ;
+    \draw [fill=white] 
+      ($(lens2) + (0,3.5)$)
+      node [above] {Lens ($f_1$)}
+      to [out=254, in=106] ++(0,-7)  
+      to [out=74, in=286] ++(0,7)
+    ;
+    \draw 
+      ($(lens2) + (0,3.5)$)
+      to [out=278, in=82] ++(0,-7) 
+    ;
+    \fill[blue!30, opacity=0.5]
+      ($(lens2) + (-0.4,0.4)$)
+      -- ++(-2.5,0)
+      node [black,opacity=1,above,pos=0.5] {$\vec{v} \rightarrow$}
+      arc [
+        start angle=90,
+        end angle=270,
+        x radius=0.2,
+        y radius=0.4
+      ]
+      -- ++(2.5,0)
+      arc [
+        start angle=-90,
+        end angle=90,
+        x radius=0.2,
+        y radius=0.4
+      ]
+    ;
+    \fill[blue!50]
+      ($(lens2) + (-2.9,0)$) 
+      ellipse (0.2 and 0.4)
+        node[below=0.4cm,black] {$\Delta x_0 \Delta \theta_0$}
+    ;
+  \end{tikzpicture}
+  %\begin{block}{Resolution}
+  %  Resolution = Spot size on sample / 1D Number of Pixels ($N_p$)
+  %\end{block}
+  %\uncover<2->{Example: 1$\mu$m spot and 1k x 1k CCD $\Rightarrow$ 1nm resolution}
+  \end{center}
+  \visible<2->{Resolution (per pixel):}
+  \begin{equation*}
+    \visible<2->{ \Delta X }
+    \only<2>{ = \frac{\Delta x_s}{N_p} }
+    \only<3->{ = \frac{\sqrt{\Delta x_s^2}}{N_p} }
+    \visible<4->{ = \frac{\sqrt{\Delta x_s \Delta \theta_s f_1}}{N_p} }
+    \visible<5->{ \ge \frac{\sqrt{\Delta x_0 \Delta \theta_0 f_1}}{N_p} }
+  \end{equation*}
 \end{frame}
 
 \begin{frame}{Implication of Liouville's Theorem}
