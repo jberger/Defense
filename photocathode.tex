@@ -476,14 +476,31 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
   \end{center}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{III-Antimonide Photocathodes}
+  \begin{columns}
+    \begin{column}{0.30\linewidth}
+      \begin{itemize}
+        \item No emission expected
+        \item<2-> Strong emission observed
+        \item<3-> Narrow emission cone angle!
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.68\linewidth}
   \begin{figure}
     \centering
-    \input{este_plot}
+    \visible<2->{
+    \begin{tikzpicture}
+      \input{este_plot}
+      \node at (5,2) {GaSb};
+      \node at (4,3) {InSb};
+    \end{tikzpicture}
+    }
   \end{figure}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{III-Antimonide Band Structure}
   \begin{columns}
     \begin{column}{0.45\linewidth}
       \begin{figure}
@@ -517,4 +534,36 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
       }
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}{Thermionic Photoemission}
+  Fitting the transverse momentum
+    $\Delta p_{\smallT} = \sqrt{m \kB T_e} \Rightarrow m T_e \approx 360m_{\smallzero}$
+  \begin{columns}
+    \begin{column}{0.49\linewidth}
+      \begin{block}{$m=m_{\smallzero}$}
+        \begin{itemize}
+          \item $T_e \approx 360\text{K}$
+          \item $\exp(-\phi/\kB T_e) \sim 10^{-15}$
+          \item[$\hookrightarrow$] No photoemission! 
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.49\linewidth}
+      \visible<2->{
+      \begin{block}{$m=m^*$}
+        \begin{itemize}
+          \item $T_e \approx 1200\text{K}$
+          \item $\exp(-\phi/\kB T_e) \sim 5\times10^{-5}$
+          \item[$\hookrightarrow$] consistent with observations 
+        \end{itemize}
+      \end{block}
+      }
+    \end{column}
+  \end{columns}
+  \visible<3->{
+    \begin{center}
+      \alert{$\Delta p_{\smallT} = \sqrt{m^* \kB T_e}$}
+    \end{center}
+  }
 \end{frame}
