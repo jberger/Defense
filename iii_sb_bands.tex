@@ -48,7 +48,8 @@
     node [pos=0.5,left] {$E_{g}^{\prime}$};
 
   \coordinate (vacuum level) at ($(gamma 8) + (0,0.6)$);
-  \draw [thick,red] ($(vacuum level) + (-2,0)$) -- ++(4,0);
+  \draw [thick,red] ($(vacuum level) + (-2,0)$) -- ++(4,0)
+    node [right,align=left,font=\tiny] {Vacuum\\Level};
   \draw<4-> [<->] (energies |- gamma 8) -- (energies |- vacuum level)
     node [pos=0.5,left] {$\phi$};
 
