@@ -22,8 +22,11 @@
 \end{figure}
 \end{frame}
 
-\begin{frame}{Short Pulse Child's Law}
-  The Child-Langmuir Law describes the steady-state current limit in an electron gun. A similar law describes the limiting number of charges per pulse in a certain photoemission area.
+\begin{frame}{Short-pulse Child-Langmuir Law}
+  \begin{itemize}
+    \item Child-Langmuir Law: steady-state current limit in an electron gun
+    \item Short-pulse analog: limits number of charges / area
+  \end{itemize}
   \begin{columns}
     \begin{column}{0.49\linewidth}
       \begin{tikzpicture}
@@ -95,27 +98,7 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Implications of SPCL for TR-EM}
-  The results of the previous concepts lead to a simple conclusion:
-  \vfill
-  \begin{block}{}
-  \begin{figure}
-    \centering
-    \begin{tikzpicture} [every node/.style={draw,fill=white,text badly centered,text width=3cm}]
-      \node (charges)  {Need a high number of charges};
-      \node (child) [below=0.5cm of charges] {Child's law limits charges per area};
-      \node (result1) at ($(charges)!0.5!(child) + (4,0)$) {Need a large emission area};
-      
-      \draw [-latex] (charges) -- (result1);
-      \draw [-latex] (child) -- (result1);
-    \end{tikzpicture}
-  \end{figure}
-  \end{block}
-  \vfill
-  \uncover<2->{Further, large beam width necessitates custom, large bore TEM hardware}
-\end{frame}
-
-\begin{frame}{UEM vs. DTEM}
+\begin{frame}{Aside: UEM vs. DTEM}
 Definitions: \hfill (where TOF in photogun, $t_{gun} = \sqrt{ \frac{2 m d}{q E_{DC} } } \approx$ 0.1--1ns)
 \vfill
   \begin{columns}
@@ -192,7 +175,7 @@ Definitions: \hfill (where TOF in photogun, $t_{gun} = \sqrt{ \frac{2 m d}{q E_{
   \end{columns}
 \end{frame}
 
-\begin{frame}{UEM vs. DTEM}
+\begin{frame}{Aside: UEM vs. DTEM}
 \begin{center}
 \begin{tikzpicture}
   \node (image) {\includegraphics[width=0.7\linewidth]{Resolution}};
@@ -250,10 +233,30 @@ Definitions: \hfill (where TOF in photogun, $t_{gun} = \sqrt{ \frac{2 m d}{q E_{
     ;
   }
   \visible<5->{
-    \node [red] at (-2,2) {UEM};
-    \node [red] at (3,2) {DTEM};
+    \node [red] at (-2,2.2) {UEM};
+    \node [red] at (3,2.2) {DTEM};
   }
 \end{tikzpicture}
 \end{center}
+\end{frame}
+
+\begin{frame}{Implications of SPCL for TR-EM}
+  The results of the previous concepts lead to a simple conclusion:
+  \vfill
+  \begin{block}{}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture} [every node/.style={draw,fill=white,text badly centered,text width=3cm}]
+      \node (charges)  {Need a high number of charges};
+      \node (child) [below=0.5cm of charges] {Child's law limits charges per area};
+      \node (result1) at ($(charges)!0.5!(child) + (4,0)$) {Need a large emission area};
+      
+      \draw [-latex] (charges) -- (result1);
+      \draw [-latex] (child) -- (result1);
+    \end{tikzpicture}
+  \end{figure}
+  \end{block}
+  \vfill
+  \uncover<2->{Further, large beam width necessitates custom, large bore TEM hardware}
 \end{frame}
 
