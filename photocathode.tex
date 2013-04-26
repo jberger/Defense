@@ -436,10 +436,11 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
       \end{align*}
       \begin{block}<2->{}
         \begin{itemize}
-          \item Retains periodic structure
-          \item Reduced $\nabla_{\perp} E_{SP}$
-          \item Additional Fourier components
-          \item Easier to FIB mill
+          \item[$+$] Retains periodic structure
+          \item[$+$] Reduced local field enhancement
+          \item[$+$] Reduced $\nabla_{\perp} E_{SP}$
+          \item[$+$] Easier to FIB mill
+          \item[$-$] Additional Fourier components
         \end{itemize}
       \end{block}
     \end{column}
@@ -447,17 +448,8 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
 \end{frame}
 
 \begin{frame}{Trenched Nanopatterned Photocathode: Results}
+  \alert{No evidence of plasmon-assisted photoemission!}
   \begin{columns}
-    \begin{column}{0.49\linewidth}
-      \begin{figure}
-        \centering
-        \includegraphics{trench_damage_false_color.png}
-      \end{figure}
-      \begin{itemize}
-        \item Heat damage on grating
-        \item Plasmon excitation?
-      \end{itemize}
-    \end{column}
     \begin{column}{0.49\linewidth}
       \begin{figure}
         \centering
@@ -469,33 +461,43 @@ well as a fit to a $\cos^2\theta$ distribution.\footcite{zawadzka_evanescent}}
         \item[$\Rightarrow$] laser damage 
       \end{itemize}
     \end{column}
+    \begin{column}{0.49\linewidth}
+      \visible<2->{
+      \begin{figure}
+        \centering
+        \includegraphics{trench_damage_false_color.png}
+      \end{figure}
+      \begin{itemize}
+        \item Heat damage on grating
+        \item Plasmon excitation?
+        \item[\ ] \ 
+      \end{itemize}
+      }
+    \end{column}
   \end{columns}
-  \vfill
-  \begin{center}
-    \alert{No evidence of plasmon-assisted photoemission!}
-  \end{center}
 \end{frame}
 
 \begin{frame}{III-Antimonide Photocathodes}
+  \begin{center}
+    $\hbar \omega < \phi \Rightarrow $ No emission expected
+  \end{center}
   \begin{columns}
-    \begin{column}{0.30\linewidth}
-      \begin{itemize}
-        \item No emission expected
-        \item<2-> Strong emission observed
-        \item<3-> Narrow emission cone angle!
-      \end{itemize}
-    \end{column}
     \begin{column}{0.68\linewidth}
-  \begin{figure}
-    \centering
-    \visible<2->{
-    \begin{tikzpicture}
-      \input{este_plot}
-      \node at (5,2) {GaSb};
-      \node at (4,3) {InSb};
-    \end{tikzpicture}
-    }
-  \end{figure}
+      \visible<2->{
+      \begin{tikzpicture}
+        \input{este_plot}
+        \node at (5,2) {GaSb};
+        \node at (4,3) {InSb};
+      \end{tikzpicture}
+      }
+    \end{column}
+    \begin{column}{0.30\linewidth}
+      \visible<2->{
+      \begin{itemize}
+        \item Strong emission observed
+        \item Narrow emission cone angle!
+      \end{itemize}
+      }
     \end{column}
   \end{columns}
 \end{frame}
